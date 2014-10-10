@@ -1,0 +1,6 @@
+#!/bin/bash
+LOG=/home/gridcc/node/node.log
+echo "[`date`] Iniciando SSHFS" >> $LOG
+su gridcc -c "sshfs -o idmap=user -p 2200 gridcc@10.207.7.28:/home/gridcc/cloudserver/ /home/gridcc/node/cloudserver/"
+su gridcc -c "perl /home/gridcc/node/daemon.pl &1> /dev/null"
+
